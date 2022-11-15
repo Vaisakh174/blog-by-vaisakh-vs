@@ -21,9 +21,9 @@ require("./middleware/mongodb.js");
 const path = require('path');
 app.use(express.static("./dist/blog-case_study-2"));
 
-app.get('/*', function (req, res) {
-    res.sendFile(path.join(__dirname + './dist/blog-case_study-2/index.html'));
-});
+// app.get('/*', function (req, res) {
+//     res.sendFile(path.join(__dirname + './dist/blog-case_study-2/index.html'));
+// });
 
 // router move to app.js
 // const express = require("express");
@@ -31,7 +31,7 @@ const router = express.Router();
 const DATA = require("./models/blogdata")
 
 //get all list (get)
-router.get('/api/getall', async (req, res) => {
+app.get('/getall', async (req, res) => {
 
     try {
         let list = await DATA.find();
@@ -49,7 +49,7 @@ router.get('/api/getall', async (req, res) => {
 
 
 //add data (post)
-router.post('/api/post', async (req, res) => {
+app.post('/post', async (req, res) => {
 
     try {
         let item = {
