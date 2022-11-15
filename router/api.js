@@ -3,7 +3,7 @@ const express = require("express");
 const router = express.Router();
 const DATA = require("../models/blogdata")
 
-//student all list (get)
+//get all list (get)
 router.get('/getall', async (req, res) => {
 
     try {
@@ -36,7 +36,7 @@ router.get('/getall', async (req, res) => {
 
 
 
-//add student (post)
+//add data (post)
 router.post('/post', async (req, res) => {
 
     try {
