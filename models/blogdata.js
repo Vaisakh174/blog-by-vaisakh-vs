@@ -8,6 +8,7 @@ const blogschema = new schema({
     articleTitle: { type: String , requied: true },
     articleDate: { type: Date, requied: true },
     comments: { type: String, requied: true },
+    user: { type: String, requied: true },
     content1: { type: String, requied: true },
     content2: { type: String, requied: true },
     content3: { type: String, requied: true },

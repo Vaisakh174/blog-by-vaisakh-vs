@@ -59,6 +59,7 @@ app.post('/post', async (req, res) => {
             articleTitle: req.body.articleTitle,
             articleDate: req.body.articleDate,
             comments: req.body.comments,
+            user: req.body.user,
             content1: req.body.content1,
             content2: req.body.content2,
             content3: req.body.content3,
