@@ -17,7 +17,7 @@ app.use(logger("dev"));//morgan
 require("./middleware/mongodb.js");
 
 
-
+// for hosting to herokku
 const path = require('path');
 app.use(express.static("./dist/blog-case_study-2"));
 
@@ -29,13 +29,13 @@ app.get('/*', function (req, res) {
 
 // for api calls
 const api = require("./router/api.js");
-app.use("/api", api);
+app.use("/apii", api);
 
 
 
 // set port 
 // const port = "api";
-const port = process.envPORT|| 3000;
+const port = process.env.PORT|| 3000;
 app.listen(port, () => {
     console.log(`........port is now connected at ${port} ........`);
 });

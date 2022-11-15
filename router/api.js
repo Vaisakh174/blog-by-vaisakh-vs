@@ -4,7 +4,7 @@ const router = express.Router();
 const DATA = require("../models/blogdata")
 
 //student all list (get)
-router.get('api/getall', async (req, res) => {
+router.get('/getall', async (req, res) => {
 
     try {
         let list = await DATA.find();
@@ -37,7 +37,7 @@ router.get('api/getall', async (req, res) => {
 
 
 //add student (post)
-router.post('/api/post', async (req, res) => {
+router.post('/post', async (req, res) => {
 
     try {
         let item = {
