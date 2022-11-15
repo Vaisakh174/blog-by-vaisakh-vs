@@ -31,7 +31,7 @@ const router = express.Router();
 const DATA = require("./models/blogdata")
 
 //get all list (get)
-router.get('/getall', async (req, res) => {
+router.get('/api/getall', async (req, res) => {
 
     try {
         let list = await DATA.find();
@@ -49,7 +49,7 @@ router.get('/getall', async (req, res) => {
 
 
 //add data (post)
-router.post('/post', async (req, res) => {
+router.post('/api/post', async (req, res) => {
 
     try {
         let item = {
