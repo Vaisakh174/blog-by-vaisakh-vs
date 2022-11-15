@@ -17,7 +17,7 @@ app.use(logger("dev"));//morgan
 require("./middleware/mongodb.js");
 
 
-for hosting to herokku
+// for hosting to herokku
 const path = require('path');
 app.use(express.static("./dist/blog-case_study-2"));
 
