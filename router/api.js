@@ -46,7 +46,7 @@ router.post('/post', async (req, res) => {
             followCount: req.body.followCount,
             articleTitle: req.body.articleTitle,
             articleDate: req.body.articleDate,
-            comments: req.body.comments,
+            comment: req.body.comment,
             content1: req.body.content1,
             content2: req.body.content2,
             content3: req.body.content3,

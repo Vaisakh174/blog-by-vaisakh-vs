@@ -7,7 +7,7 @@ const blogschema = new schema({
     followCount: { type: Number, requied: true },
     articleTitle: { type: String , requied: true },
     articleDate: { type: Date, requied: true },
-    comments: { type: String, requied: true },
+    comment: { type: String, requied: true },
     user: { type: String, requied: true },
     content1: { type: String, requied: true },
     content2: { type: String, requied: true },
