@@ -18,8 +18,8 @@ require("./middleware/mongodb.js");
 
 
 // for hosting to herokku
-const path = require('path');
-app.use(express.static("./dist/blog-case_study-2"));
+// const path = require('path');
+// app.use(express.static("./dist/blog-case_study-2"));
 
 // app.get('/*', function (req, res) {
 //     res.sendFile(path.join(__dirname + './dist/blog-case_study-2/index.html'));
@@ -82,7 +82,7 @@ app.post('/post', async (req, res) => {
 });
 
 
-// // for api calls
+// for api calls
 // const api = require("./router/api.js");
 // app.use("/apii", api);
 
