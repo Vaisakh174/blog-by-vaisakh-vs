@@ -28,7 +28,7 @@ app.get('/*', function (req, res) {
 // router move to app.js
 // const express = require("express");
 const router = express.Router();
-const DATA = require("../models/blogdata")
+const DATA = require("./models/blogdata")
 
 //get all list (get)
 router.get('/getall', async (req, res) => {
