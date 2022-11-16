@@ -24,95 +24,95 @@ app.use(express.static("./dist/blog-case_study-2"));
 
 // router move to app.js
 // const express = require("express");
-const router = express.Router();
-const DATA = require("./models/blogdata")
+// const router = express.Router();
+// const DATA = require("./models/blogdata")
 
 //get all list (get)
-app.get('/getall', async (req, res) => {
+// app.get('/getall', async (req, res) => {
 
-    try {
-        let list = await DATA.find();
+//     try {
+//         let list = await DATA.find();
         
-        console.log(`from get method ${list}`);
-        res.send(list);
-    }
-    catch (error) {
-        console.log(`error from get method ${error}`);
+//         console.log(`from get method ${list}`);
+//         res.send(list);
+//     }
+//     catch (error) {
+//         console.log(`error from get method ${error}`);
 
-    }
+//     }
 
-});
+// });
 
 
 
 //add data (post)
-app.post('/post', async (req, res) => {
+// app.post('/post', async (req, res) => {
 
-    try {
-        let item = {
-            blogerName: req.body.blogerName,
-            blogerImg: req.body.blogerImg,
-            followCount: req.body.followCount,
-            articleTitle: req.body.articleTitle,
-            articleDate: req.body.articleDate,
-            comment: req.body.comment,
-            user: req.body.user,
-            content1: req.body.content1,
-            content2: req.body.content2,
-            content3: req.body.content3,
-            content4: req.body.content4,
-            content5: req.body.content5,
-            content6: req.body.content6,
-            content7: req.body.content7,
-            content8: req.body.content8,
-            content9: req.body.content9,
-            content10: req.body.content10
-        }
-        const newdata = new DATA(item);
-        const savedata = await newdata.save();
-        console.log(`from post method ${savedata}`);
-        res.send(savedata);
+//     try {
+//         let item = {
+//             blogerName: req.body.blogerName,
+//             blogerImg: req.body.blogerImg,
+//             followCount: req.body.followCount,
+//             articleTitle: req.body.articleTitle,
+//             articleDate: req.body.articleDate,
+//             comment: req.body.comment,
+//             user: req.body.user,
+//             content1: req.body.content1,
+//             content2: req.body.content2,
+//             content3: req.body.content3,
+//             content4: req.body.content4,
+//             content5: req.body.content5,
+//             content6: req.body.content6,
+//             content7: req.body.content7,
+//             content8: req.body.content8,
+//             content9: req.body.content9,
+//             content10: req.body.content10
+//         }
+//         const newdata = new DATA(item);
+//         const savedata = await newdata.save();
+//         console.log(`from post method ${savedata}`);
+//         res.send(savedata);
 
-    } catch (error) {
-        console.log(`error from get method ${error}`);
-    }
+//     } catch (error) {
+//         console.log(`error from get method ${error}`);
+//     }
 
-});
+// });
 
 
 
 // update data
-app.put('/update', async (req, res) => {
+// app.put('/update', async (req, res) => {
 
-    try {
-        let id = req.body._id;
-        let item = {
-            // comment: req.body.comment,
-            followCount:req.body.followCount
-        }
-        console.log("incoming data from update",this.id,this.item);
+//     try {
+//         let id = req.body._id;
+//         let item = {
+//             // comment: req.body.comment,
+//             followCount:req.body.followCount
+//         }
+//         console.log("incoming data from update",this.id,this.item);
 
-        let updatedata = await DATA.findByIdAndUpdate(
-            { "_id": id },
-            { $set: item }
-        );  
-        console.log(`from put method old data ${updatedata}`);
-        res.send(updatedata);
+//         let updatedata = await DATA.findByIdAndUpdate(
+//             { "_id": id },
+//             { $set: item }
+//         );  
+//         console.log(`from put method old data ${updatedata}`);
+//         res.send(updatedata);
 
-    } catch (error) {
-        console.log(`error from get method ${error}`);
-    }
+//     } catch (error) {
+//         console.log(`error from get method ${error}`);
+//     }
 
-});
+// });
 
 // for api calls
-// const api = require("./router/api.js");
-// app.use("/apii", api);
+const api = require("./router/api.js");
+app.use("/api", api);
 
-//for heroku
-// app.get('/*', function (req, res) {
-//     res.sendFile(path.join(__dirname + './dist/blog-case_study-2/index.html'));
-// });
+// for heroku
+app.get('/*', function (req, res) {
+    res.sendFile(path.join(__dirname + './dist/blog-case_study-2/index.html'));
+});
 
 // set port 
 // const port = "api";

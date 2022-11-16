@@ -4,7 +4,7 @@ const router = express.Router();
 const DATA = require("../models/blogdata")
 
 //get all list (get)
-router.get('/getall', async (req, res) => {
+router.get('/api/getall', async (req, res) => {
 
     try {
         let list = await DATA.find();
@@ -37,27 +37,28 @@ router.get('/getall', async (req, res) => {
 
 
 //add data (post)
-router.post('/post', async (req, res) => {
+router.post('/api/post', async (req, res) => {
 
     try {
         let item = {
-            blogerName: req.body.blogerName,
-            blogerImg: req.body.blogerImg,
-            followCount: req.body.followCount,
-            articleTitle: req.body.articleTitle,
-            articleDate: req.body.articleDate,
-            comment: req.body.comment,
-            content1: req.body.content1,
-            content2: req.body.content2,
-            content3: req.body.content3,
-            content4: req.body.content4,
-            content5: req.body.content5,
-            content6: req.body.content6,
-            content7: req.body.content7,
-            content8: req.body.content8,
-            content9: req.body.content9,
-            content10: req.body.content10
-        }
+                        blogerName: req.body.blogerName,
+                        blogerImg: req.body.blogerImg,
+                        followCount: req.body.followCount,
+                        articleTitle: req.body.articleTitle,
+                        articleDate: req.body.articleDate,
+                        comment: req.body.comment,
+                        user: req.body.user,
+                        content1: req.body.content1,
+                        content2: req.body.content2,
+                        content3: req.body.content3,
+                        content4: req.body.content4,
+                        content5: req.body.content5,
+                        content6: req.body.content6,
+                        content7: req.body.content7,
+                        content8: req.body.content8,
+                        content9: req.body.content9,
+                        content10: req.body.content10
+                    }
         const newdata = new DATA(item);
         const savedata = await newdata.save();
         console.log(`from post method ${savedata}`);
@@ -86,26 +87,31 @@ router.post('/post', async (req, res) => {
 // });
 
 
-// // update student
-// router.put('/update', async (req, res) => {
 
-//     try {
-//         let id = req.body._id;
-//         let item = {
-//             "name": req.body.name,
-//             "age": req.body.age
-//         }
-//         let updatestudent = await DATA.findByIdAndUpdate(
-//             { "_id": id },
-//             { $set: item }
-//         );
-//         res.send(updatestudent);
-//         console.log(`from put method old data ${updatestudent}`);
-//     } catch (error) {
-//         console.log(`error from get method ${error}`);
-//     }
 
-// });
+// update data
+router.put('/api/update', async (req, res) => {
+
+    try {
+        let id = req.body._id;
+        let item = {
+            // comment: req.body.comment,
+            followCount:req.body.followCount
+        }
+        console.log("incoming data from update",this.id,this.item);
+
+        let updatedata = await DATA.findByIdAndUpdate(
+            { "_id": id },
+            { $set: item }
+        );  
+        console.log(`from put method old data ${updatedata}`);
+        res.send(updatedata);
+
+    } catch (error) {
+        console.log(`error from get method ${error}`);
+    }
+
+});
 
 
 
