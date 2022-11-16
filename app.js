@@ -19,7 +19,8 @@ require("./middleware/mongodb.js");
 
 // for hosting to herokku
 const path = require('path');
-app.use(express.static("./dist/blog-case_study-2"));
+app.use(express.static(path.join(__dirname + "/dist/blog-case_study-2")));
+// app.use(express.static("/dist/blog-case_study-2"));
 
 
 // router move to app.js
@@ -106,12 +107,12 @@ app.use(express.static("./dist/blog-case_study-2"));
 // });
 
 // for api calls
-const api = require("./router/api.js");
-app.use("/api", api);
+const api = require("/router/api.js");
+app.use("/apii", api);
 
 // for heroku
 app.get('/*', function (req, res) {
-    res.sendFile(path.join(__dirname + './dist/blog-case_study-2/index.html'));
+    res.sendFile(path.join(__dirname + '/dist/blog-case_study-2/index.html'));
 });
 
 // set port 
