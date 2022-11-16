@@ -5,6 +5,7 @@ const blogschema = new schema({
     blogerName: { type: String, requied: true },
     blogerImg: { type: String, requied: true },
     followCount: { type: Number, requied: true },
+    // _id: { type: Number, requied: true },
     articleTitle: { type: String , requied: true },
     articleDate: { type: Date, requied: true },
     comment: { type: String, requied: true },

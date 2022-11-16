@@ -21,9 +21,6 @@ require("./middleware/mongodb.js");
 const path = require('path');
 app.use(express.static("./dist/blog-case_study-2"));
 
-// app.get('/*', function (req, res) {
-//     res.sendFile(path.join(__dirname + './dist/blog-case_study-2/index.html'));
-// });
 
 // router move to app.js
 // const express = require("express");
@@ -83,11 +80,39 @@ app.post('/post', async (req, res) => {
 });
 
 
+
+// update data
+app.put('/update', async (req, res) => {
+
+    try {
+        let id = req.body._id;
+        let item = {
+            // comment: req.body.comment,
+            followCount:req.body.followCount
+        }
+        console.log("incoming data from update",this.id,this.item);
+
+        let updatedata = await DATA.findByIdAndUpdate(
+            { "_id": id },
+            { $set: item }
+        );  
+        console.log(`from put method old data ${updatedata}`);
+        res.send(updatedata);
+
+    } catch (error) {
+        console.log(`error from get method ${error}`);
+    }
+
+});
+
 // for api calls
 // const api = require("./router/api.js");
 // app.use("/apii", api);
 
-
+//for heroku
+// app.get('/*', function (req, res) {
+//     res.sendFile(path.join(__dirname + './dist/blog-case_study-2/index.html'));
+// });
 
 // set port 
 // const port = "api";
