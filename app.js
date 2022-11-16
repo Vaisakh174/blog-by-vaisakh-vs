@@ -107,7 +107,7 @@ app.use(express.static(path.join(__dirname + "/dist/blog-case_study-2")));
 // });
 
 // for api calls
-const api = require("/router/api.js");
+const api = require("./router/api.js");
 app.use("/apii", api);
 
 // for heroku
